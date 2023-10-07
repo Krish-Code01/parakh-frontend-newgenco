@@ -13,11 +13,11 @@ import axios from "axios";
 import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Input } from "../ui/input";
-import { Button } from "../ui/button";
 import Link from "next/link";
 import { toast } from "react-hot-toast";
 import { useState } from "react";
 import { useParams, useRouter } from "next/navigation";
+import { Button } from "@chakra-ui/react";
 
 const FormSchema = z.object({
   email: z.string().min(1, "Email is required").email("Invalid email"),
@@ -79,7 +79,7 @@ const SignUpForm = () => {
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="w-full">
-        <div className="space-y-2">
+        <div className="flex flex-col justify-center items-center space-y-2">
           <FormField
             control={form.control}
             name="name"
@@ -136,10 +136,15 @@ const SignUpForm = () => {
               </FormItem>
             )}
           />
+          <Button
+            className="mt-10"
+            colorScheme="facebook"
+            variant="solid"
+            type="submit"
+          >
+            Sign Up
+          </Button>
         </div>
-        <Button className="w-full mt-6" type="submit">
-          Sign up
-        </Button>
       </form>
       <div className="mx-auto my-4 flex w-full items-center justify-evenly before:mr-4 before:block before:h-px before:flex-grow before:bg-stone-400 after:ml-4 after:block after:h-px after:flex-grow after:bg-stone-400">
         or

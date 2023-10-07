@@ -20,11 +20,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <main className="h-screen flex flex-col justify-center items-center">
-          <ToastProvider />
-          <Navbar />
-          <ChakraProvider>{children}</ChakraProvider>
-        </main>
+        <ToastProvider />
+        <Navbar />
+        <ChakraProvider>{children}</ChakraProvider>
       </body>
     </html>
   );
